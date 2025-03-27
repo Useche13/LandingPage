@@ -1,0 +1,261 @@
+/* Dezplazamiento suave o  SmoothScrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+.navbar .fixed-top{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+body {
+    padding-top: 56px;
+}
+
+h2 {
+    transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+h2:hover {
+    color: var(--color-accent); 
+    font-size: 2.2rem; /* Aumentamos el tamaño al pasar el mouse */
+}
+
+.img-fluid {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent; /* Primer marco transparente */
+}
+
+.img-fluid:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra en en marco*/
+    border-color: var(--color-accent); /* Color al pasar el mouse*/
+}
+
+.carousel-inner h5 {
+    position: absolute;
+    text-align: center;
+    top: -270px;
+}
+
+.carousel-item p {
+    position: absolute;
+    text-align: center;
+    top: -250px;
+}
+
+/* Determinamos la paleta de colores con todos los codigos a utilizar*/
+:root {
+    --color-primary: #27667B; 
+    --color-secondary: #A0C878; 
+    --color-accent: #DDEB9D; 
+    --color-background: #143D60; 
+    --color-text: #FFFFFF; 
+    --color-text-dark: #000000; 
+}
+
+/* Estilos generales */
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: Arial, sans-serif;
+}
+
+/* Para la barra de navegacion, declaramos !important para que no se sobreescriba ningun estilo para dicha clase */
+.navbar {
+    background-color: var(--color-primary) !important;
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+    color: var(--color-text) !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--color-accent) !important;
+}
+
+.carousel-caption h5 {
+    color: var(--color-accent);
+}
+
+.carousel-caption p {
+    color: var(--color-text);
+}
+
+/* Estilizamos las secciones */
+section {
+    background-color: var(--color-primary);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+section h2 {
+    color: var(--color-accent);
+}
+
+section p {
+    color: var(--color-text);
+}
+
+/* Estilizamos el Aside */
+aside {
+    background-color: var(--color-background);
+    border-radius: 10px;
+    height: auto;
+}
+
+aside h3 {
+    color: var(--color-background);
+}
+
+aside p, aside ul {
+    color: var(--color-text-dark);
+}
+
+aside ul li {
+    margin-bottom: 10px;
+}
+
+
+/* Eslitizamos el formulario de contacto */
+form {
+    background-color: var(--color-accent);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+form label {
+    color: var(--color-background);
+}
+
+form input, form textarea {
+    background-color: var(--color-text);
+    border: 1px solid var(--color-primary);
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+form button {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: var(--color-background);
+}
+
+/* Pie de la pagina */
+footer {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Definicion de las animaciones a usar */
+@keyframes drip {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes fadeIn {
+    form { opacity: 0; transform: translateY(-20px);}
+    to { opacity: 1; transform: translateY(0);}
+    
+}
+
+/* Estilos para los servicios de la nueva seccion */
+.servicios-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.servicio-card {
+    background-color: var(--color-primary);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.servicio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background-color: var(--color-secondary);
+}
+
+.servicio-card:hover h3 {
+    color: var(--color-background);
+    transition: color 0.5s ease;
+}
+
+.servicio-card:hover p {
+    color: var(--color-text-dark);
+    transition: color 0.5s ease;
+}
+
+.servicio-icon {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Asignamos las animaciones a cada icono */
+.servicio-card:nth-child(1) .servicio-icon {
+    animation: drip 2s infinite ease-in-out;
+}
+
+.servicio-card:nth-child(2) .servicio-icon {
+    animation: pulse 1.5s infinite;
+}
+
+.servicio-card:nth-child(3) .servicio-icon {
+    animation: blink 2s infinite;
+}
+
+.servicio-card:nth-child(4) .servicio-icon {
+    animation: bounce 1.8s infinite;
+}
+
+/* Estilo base de los textos en las cartas */
+.servicio-card h3 {
+    color: var(--color-accent);
+    margin-bottom: 10px;
+}
+
+.servicio-card p {
+    color: var(--color-text);
+    font-size: 0.9rem;
+}
